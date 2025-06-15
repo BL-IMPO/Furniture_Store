@@ -6,14 +6,17 @@ from django.http import HttpResponse
 def index(request) -> HttpResponse:
     context = {
         'title': 'Home',
-        'content': 'Main page of the store by the name HOME',
-        'list': ['first', 'second'],
-        'dict': {'first': 1},
-        'is_authenticated': True,
+        'content': 'Furniture store - HOME',
     }
 
     return render(request, 'main/index.html', context)
 
 
 def about(request) -> HttpResponse:
-    return HttpResponse('About page')
+    context = {
+        'title': 'About Us',
+        'content': 'About Us',
+        'text_on_page': "We're a new furniture sore that sells such a great furniture!"
+    }
+
+    return render(request, 'main/about.html', context)
