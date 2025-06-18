@@ -1,4 +1,5 @@
 {% load static %}
+{% load goods_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,40 +37,40 @@
                         <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle text-white" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Информация
+                                Informacja
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item  text-white" href="#">Доставка и оплата</a></li>
-                                <li><a class="dropdown-item  text-white" href="#">Контактная информация</a></li>
-                                <li><a class="dropdown-item  text-white" href="{% url 'main:about' %}">Про нас</a></li>
+                                <li><a class="dropdown-item  text-white" href="#">Dostawa i płatność</a></li>
+                                <li><a class="dropdown-item  text-white" href="#">Informacje kontaktowe</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url 'main:about' %}">O nas</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  text-white" href="carts/cart.html">Корзина</a>
+                            <a class="nav-link  text-white" href="carts/cart.html">Koszyk</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  text-white" href="users/login.html">Войти</a>
+                            <a class="nav-link  text-white" href="users/login.html">Login</a>
                         </li>
                         <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle text-white" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Мой профиль
+                                Mój profil
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item  text-white" href="carts/cart.html">Корзина</a></li>
-                                <li><a class="dropdown-item  text-white" href="users/profile.html">Личный кабинет</a>
+                                <li><a class="dropdown-item  text-white" href="carts/cart.html">Koszyk</a></li>
+                                <li><a class="dropdown-item  text-white" href="users/profile.html">Konto osobiste</a>
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="{% url 'admin:index' %}">Админ панель</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url 'admin:index' %}">Panel administracyjny</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="#">Выйти</a></li>
+                                <li><a class="dropdown-item  text-white" href="#">Wychodzić</a></li>
                             </ul>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success text-white" type="submit">Поиск</button>
+                        <button class="btn btn-outline-success text-white" type="submit">Szukaj</button>
                     </form>
                 </div>
             </div>
@@ -83,11 +84,12 @@
                 <div class="dropdown mb-2">
                     <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Каталог
+                        Katalog
                         <img class="mx-1" src="{% static "deps/icons/grid-fill.svg" %}" alt="Catalog Icon" width="16"
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
+                        {% tag_categories as categories %}
                         {% for category in categories %}
                         <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">{{ category.name }}</a></li>
                         {% endfor %}
@@ -112,12 +114,12 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <h3 class="text-center mb-4">Корзина</h3>
+                                <h3 class="text-center mb-4">Koszyk</h3>
                                 <div class="container" id="cart-items-container">
                                     <!-- Разметка корзины -->
                                     <div class="card mb-3 text-bg-light shadow-lg">
                                         <div class="card-header">
-                                            <h5 class="card-title">Товар</h5>
+                                            <h5 class="card-title">Produkt</h5>
                                         </div>
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item">
@@ -152,14 +154,14 @@
                                     </div>
                                     <div class="card mb-3 shadow-lg">
                                         <div class="card-footer">
-                                            <p class="float-left">Итого <strong>1</strong> товар(а) на сумму</p>
+                                            <p class="float-left">Całkowity <strong>1</strong> wartość przedmiotu(ów)</p>
                                             <h4 class="float-left"><strong>100.00 $</strong></h4>
                                         </div>
                                     </div>
                                     <!-- Закончилась разметка корзины -->
                                 </div>
                                 <a class="btn btn-dark" href="orders/create_order.html">
-                                    Оформить заказ
+                                    Składać zamówienie
                                 </a>
                             </div>
                         </div>
