@@ -49,7 +49,7 @@
                             <a class="nav-link  text-white" href="carts/cart.html">Koszyk</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  text-white" href="users/login.html">Login</a>
+                            <a class="nav-link  text-white" href="{% url 'user:login' %}">Login</a>
                         </li>
                         <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle text-white" href="#" role="button"
@@ -58,13 +58,13 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item  text-white" href="carts/cart.html">Koszyk</a></li>
-                                <li><a class="dropdown-item  text-white" href="users/profile.html">Konto osobiste</a>
+                                <li><a class="dropdown-item  text-white" href="{% url 'user:profile' %}">Konto osobiste</a>
                                 </li>
                                 <li><a class="dropdown-item  text-white" href="{% url 'admin:index' %}">Panel administracyjny</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="#">Wychodzić</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url 'users:logout' %}">Wychodzić</a></li>
                             </ul>
                         </li>
                     </ul>
