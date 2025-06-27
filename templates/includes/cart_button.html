@@ -25,11 +25,17 @@
           <!-- Разметка корзины -->
           {% include 'carts/includes/included_cart.html' %}
           <!-- Закончилась разметка корзины -->
+
+        {% if carts %}
+
         </div>
         <a class="btn btn-dark" href="orders/create_order.html">
           Składać zamówienie
         </a>
       </div>
+
+      {% endif %}
+
     </div>
   </div>
 </div>
