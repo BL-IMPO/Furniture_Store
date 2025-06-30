@@ -1,3 +1,5 @@
+import re
+
 from django import forms
 
 
@@ -13,6 +15,19 @@ class CreateOrderForm(forms.Form):
     payment_on_get = forms.ChoiceField(choices=[
             ("0", 'False'),
             ("1", 'True'), ], )
+
+    def clean_phone_number(self):
+        data = self.cleaned_data['phone_number']
+
+        if not data.isdigit():
+            raise forms.ValidationError("Numer telefonu musi zawierać wyłącznie cyfry.")
+
+        pattern = re.compile(r'^\d(10)$')
+        if not pattern.match(data):
+            raise forms.ValidationError("Nieprawidłowy format liczby.")
+
+        return data
+
 
     # The bad way to store data like this because we will be involved in frontend part
     #first_name = forms.CharField(
