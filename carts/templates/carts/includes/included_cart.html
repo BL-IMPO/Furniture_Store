@@ -52,3 +52,9 @@
         <h4 class="float-left"><strong>{{ carts.total_price }} ZL</strong></h4>
     </div>
 </div>
+
+{% if carts and not order %}
+    <a class="btn btn-dark" href="{% url 'orders:create_order' %}">
+        Składać zamówienie
+    </a>
+{% endif %}
