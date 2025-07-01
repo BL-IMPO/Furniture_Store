@@ -29,6 +29,7 @@ class Order(models.Model):
         db_table = "order"
         verbose_name = "Zamówienie"
         verbose_name_plural = 'Zamówieny'
+        ordering = ("id",)
 
     def __str__(self):
         return f"Zamówienie № {self.pk} | Kupujący {self.user.first_name} {self.user.last_name} "
@@ -46,7 +47,7 @@ class OrderItem(models.Model):
         db_table = "order_item"
         verbose_name = "Sprzedane towary"
         verbose_name_plural = "Sprzedane towary"
-
+        ordering = ("id",)
     def products_price(self):
         return round(self.price * self.quantity, 2)
 
