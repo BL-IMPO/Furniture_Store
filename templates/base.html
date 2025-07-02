@@ -40,8 +40,8 @@
                                 Informacja
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item  text-white" href="#">Dostawa i płatność</a></li>
-                                <li><a class="dropdown-item  text-white" href="#">Informacje kontaktowe</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url 'main:about' %}">Dostawa i płatność</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url 'main:about' %}">Informacje kontaktowe</a></li>
                                 <li><a class="dropdown-item  text-white" href="{% url 'main:about' %}">O nas</a></li>
                             </ul>
                         </li>
@@ -61,7 +61,7 @@
                                 Mój profil
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item  text-white" href="carts/cart.html">Koszyk</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url 'user:users_cart' %}">Koszyk</a></li>
                                 <li><a class="dropdown-item  text-white" href="{% url 'user:profile' %}">Konto osobiste</a>
                                 </li>
                                 {% if user.is_admin or user.is_staff %}
